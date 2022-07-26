@@ -10,19 +10,45 @@ exports.handleVerification = async (req, res)=>{
     // Retrieve the request's body
     const event = req.body;
     // Do something with event 
-    // const eventObj = JSON.parse(event)
-    // const doc = {
-    //     _type: 'test',
-    //     title: eventObj.event
+    res.sendStatus(200);
+F
+    const {data:{
+        reference, amount, paid_at, metadata:{name, phone, state, address, ordered_items,quantity}, customer:{email, customer_code}
+    }} = event
+    
                
-
-    // } 
     console.log(event)
+    const obj = {
+        customer_name: name,
+        reference,
+        ordered_items,
+        total_price: parseInt(amount),
+        total_quantity: parseInt(quantity),
+        email,
+        phone,
+        state,
+        address,
+        customer_code,
+        date_ordered: paid_at,
+        isDelivered: false
+    }
+
+
+    client
+    .patch('order') // Document ID to patch
+    .set(obj) // Shallow merge
+    .commit() // Perform the patch and return a promise
+    .then((updatedOrder) => {
+        console.log('Hurray, the order is updated! New document:')
+        console.log(updatedOrder)
+    })
+  .catch((err) => {
+    console.error('Oh no, the update failed: ', err.message)
+  })
         // console.log(eventObj)
     // client.create(doc).then((res) => {
     //     console.log(`Bike was created, document ID is ${res._id}`)
     //   })
         
     }
-    res.sendStatus(200);
 }
