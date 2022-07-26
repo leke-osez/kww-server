@@ -17,4 +17,6 @@ app.use(cors());
 
 app.use('/', verification)
 
+app.get('/',(req, res)=> res.send('welcome to kww server'))
+
 app.listen(PORT,()=>{console.log(`server running on port:-> http://localhost:${PORT}`); })
