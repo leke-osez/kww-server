@@ -10,7 +10,7 @@ exports.handleVerification = async (req, res)=>{
     // Retrieve the request's body
     const event = req.body;
     // Do something with event 
-    const eventObj = JSON.parse(event)
+    // const eventObj = JSON.parse(event)
     const doc = {
         _type: 'test',
         title: eventObj.event
@@ -18,7 +18,7 @@ exports.handleVerification = async (req, res)=>{
 
     } 
     console.log(event)
-        console.log(eventObj)
+        // console.log(eventObj)
     client.create(doc).then((res) => {
         console.log(`Bike was created, document ID is ${res._id}`)
       })
