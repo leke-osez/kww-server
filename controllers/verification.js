@@ -3,7 +3,7 @@ const client = require('../helpers/sanity.js')
 const secret = `${process.env.SECRET_KEY_PAYSTACK}`;
 
 exports.handleVerification = async (req, res)=>{
-    console.log('testing server')
+    console.log({name: 'sth'})
 
     const hash = crypto.createHmac('sha512', secret).update(JSON.stringify(req.body)).digest('hex');
     if (hash == req.headers['x-paystack-signature']) {
