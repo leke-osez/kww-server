@@ -7,8 +7,15 @@ exports.handleVerification = async (req, res)=>{
     if (hash == req.headers['x-paystack-signature']) {
     // Retrieve the request's body
     const event = req.body;
-    // Do something with event  
-    client.create(event).then((res) => {
+    // Do something with event 
+    const eventObj = JSON.parse(event)
+    const doc = {
+        _type: 'test',
+        title: eventObj.event
+               
+
+    } 
+    client.create(doc).then((res) => {
         console.log(`Bike was created, document ID is ${res._id}`)
       })
         console.log(event)
