@@ -17,6 +17,7 @@ exports.handleVerification = async (req, res)=>{
     } 
     console.log(event)
         console.log(eventObj)
+        console.log('testing server')
     client.create(doc).then((res) => {
         console.log(`Bike was created, document ID is ${res._id}`)
       })
