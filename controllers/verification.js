@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const client = require('../helpers/sanity.js')
-const secret = process.env.SECRET_KEY_PAYSTACK;
+const secret = `${process.env.SECRET_KEY_PAYSTACK}`;
 
 exports.handleVerification = async (req, res)=>{
     const hash = crypto.createHmac('sha512', secret).update(JSON.stringify(req.body)).digest('hex');
