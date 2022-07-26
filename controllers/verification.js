@@ -15,10 +15,12 @@ exports.handleVerification = async (req, res)=>{
                
 
     } 
+    console.log(event)
+        console.log(eventObj)
     client.create(doc).then((res) => {
         console.log(`Bike was created, document ID is ${res._id}`)
       })
-        console.log(event)
+        
     }
     res.send(200);
 }
