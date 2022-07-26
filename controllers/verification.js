@@ -3,6 +3,8 @@ const client = require('../helpers/sanity.js')
 const secret = `${process.env.SECRET_KEY_PAYSTACK}`;
 
 exports.handleVerification = async (req, res)=>{
+    console.log('testing server')
+
     const hash = crypto.createHmac('sha512', secret).update(JSON.stringify(req.body)).digest('hex');
     if (hash == req.headers['x-paystack-signature']) {
     // Retrieve the request's body
@@ -17,7 +19,6 @@ exports.handleVerification = async (req, res)=>{
     } 
     console.log(event)
         console.log(eventObj)
-        console.log('testing server')
     client.create(doc).then((res) => {
         console.log(`Bike was created, document ID is ${res._id}`)
       })
