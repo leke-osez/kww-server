@@ -1,6 +1,6 @@
 const crypto = require('crypto');
 const client = require('../helpers/sanity.js')
-const secret = `${process.env.SECRET_KEY_PAYSTACK}`;
+const secret = process.env.SECRET_KEY_PAYSTACK;
 
 exports.handleVerification = async (req, res)=>{
     console.log({name: 'sth'})
@@ -24,5 +24,5 @@ exports.handleVerification = async (req, res)=>{
       })
         
     }
-    res.send(200);
+    res.sendStatus(200);
 }
