@@ -17,4 +17,4 @@ app.use(cors());
 
 app.use('/', verification)
 
-app.listen(PORT,()=>{console.log(`server running on port:-> http://localhost:${PORT}`)})
+app.listen(PORT,()=>{console.log(`server running on port:-> http://localhost:${PORT}`); })
