@@ -33,17 +33,17 @@ exports.handleVerification = async (req, res)=>{
     }
 
 console.log(obj)
-    // client
-    // .patch('order') // Document ID to patch
-    // .set(obj) // Shallow merge
-    // .commit() // Perform the patch and return a promise
-    // .then((updatedOrder) => {
-    //     console.log('Hurray, the order is updated! New document:')
-    //     console.log(updatedOrder)
-    // })
-    // .catch((err) => {
-    //     console.error('Oh no, the update failed: ', err.message)
-    // })
+    client
+    .patch('order') // Document ID to patch
+    .set(obj) // Shallow merge
+    .commit() // Perform the patch and return a promise
+    .then((updatedOrder) => {
+        console.log('Hurray, the order is updated! New document:')
+        console.log(updatedOrder)
+    })
+    .catch((err) => {
+        console.error('Oh no, the update failed: ', err.message)
+    })
     
         
     }
