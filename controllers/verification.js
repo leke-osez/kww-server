@@ -33,18 +33,18 @@ F
         isDelivered: false
     }
 
-
-    client
-    .patch('order') // Document ID to patch
-    .set(obj) // Shallow merge
-    .commit() // Perform the patch and return a promise
-    .then((updatedOrder) => {
-        console.log('Hurray, the order is updated! New document:')
-        console.log(updatedOrder)
-    })
-  .catch((err) => {
-    console.error('Oh no, the update failed: ', err.message)
-  })
+console.log(obj)
+//     client
+//     .patch('order') // Document ID to patch
+//     .set(obj) // Shallow merge
+//     .commit() // Perform the patch and return a promise
+//     .then((updatedOrder) => {
+//         console.log('Hurray, the order is updated! New document:')
+//         console.log(updatedOrder)
+//     })
+//   .catch((err) => {
+//     console.error('Oh no, the update failed: ', err.message)
+//   })
         // console.log(eventObj)
     // client.create(doc).then((res) => {
     //     console.log(`Bike was created, document ID is ${res._id}`)
