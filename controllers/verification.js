@@ -18,6 +18,7 @@ exports.handleVerification = async (req, res)=>{
     
                
     const obj = {
+        _type: 'order',
         customer_name: name,
         reference,
         ordered_items,
@@ -33,17 +34,20 @@ exports.handleVerification = async (req, res)=>{
     }
 
 console.log(obj)
-    client
-    .patch('order') // Document ID to patch
-    .set(obj) // Shallow merge
-    .commit() // Perform the patch and return a promise
-    .then((updatedOrder) => {
-        console.log('Hurray, the order is updated! New document:')
-        console.log(updatedOrder)
-    })
-    .catch((err) => {
-        console.error('Oh no, the update failed: ', err.message)
-    })
+client.create(obj).then((res) => {
+    console.log(`Bike was created, document ID is ${res._id}`)
+  }).catch((err)=>console.log(`failed to create doc: ${err}`))
+    // client
+    // .patch('order') // Document ID to patch
+    // .set(obj) // Shallow merge
+    // .commit() // Perform the patch and return a promise
+    // .then((updatedOrder) => {
+    //     console.log('Hurray, the order is updated! New document:')
+    //     console.log(updatedOrder)
+    // })
+    // .catch((err) => {
+    //     console.error('Oh no, the update failed: ', err.message)
+    // })
     
         
     }
